@@ -1,0 +1,22 @@
+{
+  "name": "iestynwilliams.net",
+  "version": "4.0.0",
+  "description": "iestynwilliams.net ==================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iest/iestynwilliams.net.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-stylus": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-jade": "~0.8.0",
+    "marked": "~0.2.9"
+  }
+}
