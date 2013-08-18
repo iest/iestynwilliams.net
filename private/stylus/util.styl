@@ -68,7 +68,8 @@ color()
 
 opacity(amount)
     opacity amount
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)" % (amount * 100);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)" % (amount * 100)
+    filter "alpha(opacity=%s);" % (amount * 100)
 
 // Some CSS3 modifiers
 transform()
