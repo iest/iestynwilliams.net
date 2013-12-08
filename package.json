@@ -1,0 +1,25 @@
+{
+  "name": "iestynwilliams.net",
+  "version": "4.0.0",
+  "description": "iestynwilliams.net",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iest/iestynwilliams.net.git"
+  },
+  "author": "Iestyn WIlliams",
+  "license": "MIT",
+  "dependencies": {
+    "poet": ">= 0.1.6",
+    "express": "= 3.0.0rc5",
+    "jade": ">= 0.27.5",
+    "moment": "~2.4.0",
+    "highlight.js": "~7.4.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-stylus": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "marked": "~0.2.9"
+  }
+}

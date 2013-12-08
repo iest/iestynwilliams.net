@@ -1,0 +1,4 @@
+.post-list__item
+    h1
+        a(href=post.url)= post.title
+            span.grey Posted #{moment(post.date).fromNow()}

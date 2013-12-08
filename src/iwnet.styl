@@ -1,0 +1,420 @@
+/*
+    IMPORTS
+*/
+
+@import "html5-reset"
+@import "util"
+@import "icons"
+// @import "fira"
+
+/*
+    VARIABLES
+*/
+
+font_main = "pt-sans", "Lucida Grande", "Helvetica", serif
+font_heading = "telefon-web", "Futura", sans-serif
+font_mono = "Fira Mono", monospace
+
+white = #f5f5f5
+blue = #006CFF
+blue_light = #11C9FF
+yellow = #FFCE00
+orange = #FF8E00
+green = #00E45A
+red = #FF0049
+red_dark = #FF0001
+grey = #B7B7B7
+grey_light = #DEDEDC
+black = #333332
+black_light = lighten(black, 20%)
+
+main = red
+main_dark = darken(main, 30%)
+main_light = lighten(main, 30%)
+alternative = red
+alternative_dark = darken(alternative, 30%)
+alternative_light = lighten(alternative, 30%)
+
+shadow = 0 1px 3px rgba(#000, 0.25)
+
+/*
+    CONTAINERS
+*/
+
+$column = (100%/8)
+
+html
+    boxed()
+    height 100%
+    font 1em/1.5em font_main
+
+body
+    transition()
+    boxed()
+    color black_light
+    background white
+    max-width 50em
+    margin 0 auto
+
+.wrapper
+    boxed()
+    margin 0 ($column/2)
+.wrapper--tight
+    margin 0 ($column/4)
+
+/*
+    ATOMS
+*/
+
+.logo
+    display block
+    margin 0 auto
+    margin-bottom 0.5em
+    width 2.2em
+    height @width
+    border none
+    svg
+        width 100%
+        height 100%
+        fill main
+    img
+        opacity 0.5
+        border none
+
+.tagline
+    text-align center
+    color grey
+
+.grey
+    color grey
+
+h1
+h2
+h3
+h4
+h5
+    font-family font_heading
+    font-weight bold
+    color black
+    margin 0.25em 0 0.5em
+
+h1
+    font-size 3em
+    a
+        text-decoration none
+h2
+    font-size 1.75em
+    border-bottom 1px solid main
+    margin-top 1em
+h3
+    font-size 1.5em
+h4
+    font-size 1.25em
+    text-transform uppercase
+h5
+    font-size 1em
+    text-transform uppercase
+
+p
+    font-size 1.3em
+    margin-bottom 1em
+    line-height 1.5
+
+li
+    // font-size 1.25em
+    line-height 1.25
+    margin-bottom 0.25em
+    li
+        font-size 1em
+
+em
+    font-style italic
+
+strong
+    // font-weight normal
+
+hr
+    margin 3em 0
+
+a
+    color main
+    text-decoration none
+    &:visited
+        color grey
+
+blockquote
+    margin 0.5em 0.25em
+    border-left 2px solid blue_light
+    padding-left 1em
+    line-height 1.25em
+    font-weight lighter
+
+pre
+code
+    padding 0.25em
+    margin 0.25em 0 0.5em
+    line-height 1.2em
+    font-family font_mono
+    font-size 1em
+    word-wrap normal
+    overflow-wrap normal
+    border-radius 3px
+pre
+    background rgba(grey, 0.1)
+    padding 0.5em
+    overflow auto
+
+p code
+    padding 0.1em 0.2em
+    margin 0.25em 0 0.5em
+    background rgba(grey, 0.2)
+    font-family font_mono
+    font-size 0.8em
+
+ul
+ol
+    padding-left 1em
+    margin-bottom 0.5em
+
+.btn
+a.btn
+        display inline-block
+        font-size 1.3em
+        text-align left
+        font-weight normal
+        font-family font_main
+        background alternative
+        color white
+        border none
+        border-radius 5px
+        text-decoration none
+        margin 0.25em
+        padding 0.5em 0.75em
+        line-height 1em
+        transition()
+        vertical-align middle
+        vendor(appearance, none)
+        transition(all, 500ms, ease)
+        cursor pointer
+        &:first-of-type
+            margin-left 0
+
+        i
+            transition()
+            display inline-block
+            color alternative_dark
+            text-shadow none
+            font-size 1.25em
+            line-height 1em
+            vertical-align middle
+
+        &:focus
+        &:hover
+            box-shadow 0 0.15em 1em rgba(grey, 0.5)
+            outline 0
+            border-radius 5px
+            text-shadow shadow
+            i
+                color white
+                text-shadow shadow
+        &:active
+            transform(scale(0.95))
+            transition(all, 0, ease)
+            background darken(@background, 10%)
+            color darken(@color, 10%)
+
+.btn--left
+a.btn--left
+    height 1em
+    position relative
+    z-index 1
+    &:before
+        $h = 1em
+        // $h squared = sum(x squared + y squared)
+        height 1.5em
+        transform(rotate(45deg))
+        width @height
+        background main
+        content ""
+        position absolute
+        z-index -1
+        left -0.55em
+        top 0.25em
+        border-radius 0.1875em 0 0.1875em 0.25em
+
+.btn--dark
+a.btn--dark
+    // background rgba(main, 0.25)
+    background darken(black, 20%)
+    color main
+
+    &:hover
+    &:focus
+        background darken(main, 70%)
+        box-shadow none
+        i
+            color main
+            text-shadow 0 0 0.5em main
+
+.btn--round
+a.btn--round
+    padding 0.5em
+
+.btn--small
+a.btn--small
+    font-size 0.75em
+
+/*
+    MOLECULES
+*/
+
+.post-list
+    margin 3em 0 5em
+.post-list__item
+    margin-bottom 1.5em
+
+    h1
+        font-size 1.6em
+        margin 0
+        text-transform none
+        font-weight normal
+    a
+        text-decoration none
+        color main
+
+        span
+            color black
+            display block
+            font-size 0.6em
+            color black
+
+        &:visited
+            color grey
+
+            span
+                color grey
+        &:hover
+            text-decoration underline
+
+.profile
+    .profile-image
+        display block
+        margin 0 auto
+        border-radius 100%
+        width 5em
+        boxed()
+        border 3px solid rgba(#000, 0.25)
+
+/*
+    ORGANISMS
+*/
+
+
+*
+    transition()
+header
+    position relative
+    z-index 2
+    boxed()
+
+.header
+    padding 2em 0
+    display block
+    &:hover
+    &:active
+        .tagline
+            color main
+        .logo svg
+            fill grey
+
+.content
+    padding 2em 0
+
+footer
+    max-width 30em
+    margin 3em auto 0
+    font-size 0.8em
+    border-top 2px solid main
+    padding-top 1em
+    p
+        text-align left
+
+        em
+            opacity 0.5
+
+/*
+    PAGES
+*/
+
+/*
+    MODIFIERS
+*/
+
+.pull--left
+    float left
+.pull--right
+    float right
+
+.center--inline
+    text-align center
+.center--block
+    display block
+    margin 0 auto
+
+.clear
+    clear both
+    cf()
+    padding-bottom 1em
+
+.night-mode
+    background #222
+    color grey
+
+    a
+        color red
+        &:visited
+            color grey
+    h1
+    h2
+    h3
+    h4
+    h5
+        color grey
+    h2
+        border-color red
+    blockquote
+        border-color red
+    .logo svg
+        fill red
+    .tagline
+        color grey
+    .pinstripe
+        background #333
+
+
+    .btn
+    a.btn
+        color red
+        background rgba(@color, 0.2)
+        text-shadow 0 0 1em @color
+        i
+            color darken(red_dark, 30%)
+        &:hover
+        &:focus
+            box-shadow none
+            color red_dark
+            text-shadow 0 0 1em @color
+            background rgba(red_dark, 0.4)
+            i
+                box-shadow none
+                color red_dark
+                text-shadow 0 0 1em @color
+
+    .btn--dark
+    a.btn--dark
+        background #222
+        box-shadow none
+        text-shadow none
+        &:hover
+        &:focus
+            background #222

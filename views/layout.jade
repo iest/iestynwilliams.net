@@ -1,0 +1,58 @@
+!!!
+html
+    head
+        title Iestyn Williams
+        meta(name='description', content='A web designer and developer based in Cardiff, Wales')
+
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+
+        link(rel='stylesheet', href='/css/iwnet.css')
+
+        //- script(src='http://localhost:35729/livereload.js')
+
+        script.
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-24933644-1', 'iestynwilliams.net');
+            ga('send', 'pageview');
+
+    body
+        block header
+            header
+                a(href='/').header
+                    .wrapper
+                        .logo
+                            <svg viewBox="0 0 713 576">
+                            <path d="M74.7810945,25.1394112 L103.584931,99.0820766 L29.277556,123.571656 L-0.00385989192,50.2357075 L72.8810768,25.1394112 Z M131.57649,170.939534 L209.531095,371.05771 L350.314677,0 L485.064677,371.05771 L628.194652,25.1394112 L713,25.1394112 L481.712687,575.524921 L348.638682,208.824709 L209.866294,575.860113 L58.2689866,196.18133 Z M131.57649,170.939534"></path>
+                            <image src="iw.png" width="65" height="52"/>
+                            </svg>
+                        p.tagline Interface design &amp; modern web development.
+
+        .content
+            .wrapper
+                block content
+        footer
+            .wrapper--tight.profile
+                img.profile-image(src='/me_bw.jpg')
+                :markdown
+                    I'm Iestyn *(yes-tin)*, a web designer and developer based in Cardiff, currently building stuff for [eysys](eysys.com).
+
+
+                a(href='http://twitter.com/_iest').btn
+                    i.icon-twitter
+                    | @_iest
+                a(href='https://github.com/iest').btn.btn--round
+                    i.icon-github-circled
+                a(href='http://dribbble.com/iest').btn.btn--round
+                    i.icon-dribbble
+
+
+
+        script(src='/scripts.js')
+        script(src="//use.typekit.net/prr3yiz.js")
+        script.
+            try{Typekit.load();}catch(e){}
+        //- script(src='/prettify/run_prettify.js')

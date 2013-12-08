@@ -1,0 +1,14 @@
+extends layout
+
+//- append header
+//-     .wrapper
+//-         a(href='/') &lt; Back to Posts
+
+block content
+    article.post
+        h1= post.title
+                        
+        .grey Posted #{moment(post.date).format('dddd Do MMMM YYYY')}
+
+        div.post.content
+                != post.content

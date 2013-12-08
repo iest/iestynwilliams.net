@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 404 Not Found
+
+  - var r = Math.ceil(Math.random() * 3)
+  if r == 1
+    :markdown
+      Can a shoe box?
+
+      No, but a tin can.
+  if r == 2
+    :markdown
+      When is a car not a car?
+
+      When it turns into a garage.
+  if r == 3
+    :markdown
+      What's brown and sticky?
+
+      A stick.
+
+  a(href='/').btn Go home
