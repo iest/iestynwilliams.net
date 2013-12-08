@@ -1,0 +1,90 @@
+@import "util"
+@import "icons"
+
+white = #f5f5f5
+green = #1ABC9C
+green_dark = #16A085
+red = #DB2349
+
+shadow = 0 1px 3px rgba(#000, 0.25)
+
+html
+  transition()
+  background-color green
+
+body
+  max-width 25em
+  margin 0 auto
+  padding 1em
+  font-family "myriad-pro", sans-serif
+  color white
+  text-shadow shadow
+
+.logo
+  display block
+  margin 2em auto
+  width 4em
+  height 4em
+  border none
+  svg
+    width 100%
+    height 100%
+    fill green_dark
+  img
+    opacity 0.5
+    border none
+
+p
+  text-align left
+  font-weight 300
+  font-size 1.5em
+  margin 1em 0
+
+  a
+    transition()
+    color white
+    text-decoration none
+    border-bottom 3px solid green_dark
+    &:hover
+      border-bottom-color white
+
+.social
+  max-width 9em
+  margin 2em auto 0
+  a
+    display block
+    text-align left
+    font-weight 400
+    color white
+    text-decoration none
+    font-size 1.25em
+    border 3px solid green_dark
+    border-radius 8px
+    margin-bottom 0.5em
+    padding 0.5em
+    line-height 1em
+    transition()
+    &:hover
+      border-color white
+      i
+        color white
+        text-shadow shadow
+  i
+    transition()
+    display inline-block
+    color green_dark
+    text-shadow none
+    font-size 1.5em
+    vertical-align middle
+
+.night
+  background-color #222
+  .logo svg
+    fill #444
+  body
+    color red
+    a
+      color red
+      border-color #444
+    i
+      color #444

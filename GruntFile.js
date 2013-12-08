@@ -13,15 +13,15 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      compile_stylus: {
-        files: 'src/**/*.styl',
-        tasks: ['stylus']
-      },
       templateChange: {
         files: ['views/**/*.jade'],
         options: {
           livereload: true
         }
+      },
+      compile_stylus: {
+        files: 'private/stylus/*.styl',
+        tasks: ['stylus']
       },
       reloadBrowserOnCSSChange: {
         files: ['public/css/*.css'],
