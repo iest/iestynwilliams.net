@@ -1,6 +1,6 @@
 {{{
     "title"    : "Progressive Enhancement: Raising the bar",
-    "date"     : "12-7-2013"
+    "date"     : "12-8-2013"
 }}}
 
 Progressive enhancement has become a bit of a catch-all term these days (like responsive web design), but it's original definition was as an alternative to *graceful degradation*.

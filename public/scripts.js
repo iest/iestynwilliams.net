@@ -1,7 +1,9 @@
-var currentTime = new Date();
+document.addEventListener("DOMContentLoaded", function(event) {
+  var currentTime = new Date();
 
-currentTime = currentTime.getHours();
+  currentTime = currentTime.getHours();
 
-if (currentTime <= 6 || currentTime >= 20) {
-  document.querySelector('body').classList.add('night-mode');
-}
+  if (currentTime <= 8 || currentTime >= 20) {
+    document.querySelector('html').classList.add('night-mode');
+  }
+});

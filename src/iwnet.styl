@@ -5,7 +5,6 @@
 @import "html5-reset"
 @import "util"
 @import "icons"
-// @import "fira"
 
 /*
     VARIABLES
@@ -28,10 +27,10 @@ grey_light = #DEDEDC
 black = #333332
 black_light = lighten(black, 20%)
 
-main = red
+main = #543AFC
 main_dark = darken(main, 30%)
 main_light = lighten(main, 30%)
-alternative = red
+alternative = #543AFC
 alternative_dark = darken(alternative, 30%)
 alternative_light = lighten(alternative, 30%)
 
@@ -43,18 +42,23 @@ shadow = 0 1px 3px rgba(#000, 0.25)
 
 $column = (100%/8)
 
-html
-    boxed()
-    height 100%
-    font 1em/1.5em font_main
-
 body
-    transition()
+    font 1em/1.5em font_main
+    transition(all, 400ms, ease-out)
     boxed()
     color black_light
     background white
     max-width 50em
     margin 0 auto
+    vendor(backface-visibility, hidden)
+    opacity 0
+.logo
+    opacity 0
+
+.wf-active
+    body
+    .logo
+        opacity 1
 
 .wrapper
     boxed()
@@ -69,7 +73,7 @@ body
 .logo
     display block
     margin 0 auto
-    margin-bottom 0.5em
+    margin-bottom 0.25em
     width 2.2em
     height @width
     border none
@@ -77,13 +81,14 @@ body
         width 100%
         height 100%
         fill main
-    img
-        opacity 0.5
-        border none
+    &:hover
+    &:active
+        transform(scale(1.1))
 
 .tagline
     text-align center
     color grey
+    font-size 1em
 
 .grey
     color grey
@@ -96,7 +101,8 @@ h5
     font-family font_heading
     font-weight bold
     color black
-    margin 0.25em 0 0.5em
+    margin 1em 0 0.25em
+    line-height 1em
 
 h1
     font-size 3em
@@ -104,10 +110,12 @@ h1
         text-decoration none
 h2
     font-size 1.75em
-    border-bottom 1px solid main
+    border-bottom .125em solid main
     margin-top 1em
+    line-height 1.25em
 h3
-    font-size 1.5em
+    font-size 1.75em
+
 h4
     font-size 1.25em
     text-transform uppercase
@@ -115,9 +123,10 @@ h5
     font-size 1em
     text-transform uppercase
 
+ul
 p
     font-size 1.3em
-    margin-bottom 1em
+    margin-top 1em
     line-height 1.5
 
 li
@@ -178,50 +187,50 @@ ol
 
 .btn
 a.btn
-        display inline-block
-        font-size 1.3em
-        text-align left
-        font-weight normal
-        font-family font_main
-        background alternative
-        color white
-        border none
-        border-radius 5px
-        text-decoration none
-        margin 0.25em
-        padding 0.5em 0.75em
-        line-height 1em
+    display inline-block
+    font-size 1.3em
+    text-align left
+    font-weight normal
+    font-family font_main
+    background alternative
+    color white
+    border none
+    border-radius 5px
+    text-decoration none
+    margin 0.25em
+    padding 0.5em 0.75em
+    line-height 1em
+    transition()
+    vertical-align middle
+    vendor(appearance, none)
+    transition(all, 500ms, ease)
+    cursor pointer
+    &:first-of-type
+        margin-left 0
+
+    i
         transition()
+        display inline-block
+        color alternative_dark
+        text-shadow none
+        font-size 1.25em
+        line-height 1em
         vertical-align middle
-        vendor(appearance, none)
-        transition(all, 500ms, ease)
-        cursor pointer
-        &:first-of-type
-            margin-left 0
 
+    &:focus
+    &:hover
+        box-shadow 0 0.15em 1em rgba(grey, 0.5)
+        outline 0
+        border-radius 5px
+        text-shadow shadow
         i
-            transition()
-            display inline-block
-            color alternative_dark
-            text-shadow none
-            font-size 1.25em
-            line-height 1em
-            vertical-align middle
-
-        &:focus
-        &:hover
-            box-shadow 0 0.15em 1em rgba(grey, 0.5)
-            outline 0
-            border-radius 5px
+            color white
             text-shadow shadow
-            i
-                color white
-                text-shadow shadow
-        &:active
-            transform(scale(0.95))
-            transition(all, 0, ease)
-            background darken(@background, 10%)
-            color darken(@color, 10%)
+    &:active
+        transform(scale(0.95))
+        transition(all, 0, ease)
+        background darken(@background, 10%)
+        color darken(@color, 10%)
 
 .btn--left
 a.btn--left
@@ -268,6 +277,10 @@ a.btn--small
     MOLECULES
 */
 
+.post p:first-of-type
+    font-size 1.5em
+    line-height 1.25em
+
 .post-list
     margin 3em 0 5em
 .post-list__item
@@ -281,6 +294,7 @@ a.btn--small
     a
         text-decoration none
         color main
+        line-height 1em
 
         span
             color black
@@ -318,29 +332,49 @@ header
     boxed()
 
 .header
-    padding 2em 0
+    font-size 1em
+    max-width 30em
+    boxed()
+    padding 1em 0
+    margin 0 auto
     display block
-    &:hover
-    &:active
-        .tagline
-            color main
-        .logo svg
-            fill grey
+    max-width 30em
 
 .content
     padding 2em 0
 
 footer
-    max-width 30em
-    margin 3em auto 0
+    boxed()
+    max-width 37.5em
+    @media(max-width: 30em)
+        margin-bottom 0
+    margin 3em auto
     font-size 0.8em
-    border-top 2px solid main
-    padding-top 1em
+    padding 1em
+    background grey_light
+    border-radius 4px
     p
         text-align left
-
+        line-height 1.25em
+        margin 0.5em 0
         em
             opacity 0.5
+    .btn--clear
+        margin 0.25em
+        display inline-block
+        font-size 2em
+        color main
+        border 3px solid grey
+        border-radius 100%
+        width 1.36em
+        height @width
+        i
+            position relative
+            top 0.21em
+        &:hover
+            border-color main
+        &:active
+            transform(scale(0.95))
 
 /*
     PAGES
@@ -367,54 +401,61 @@ footer
     padding-bottom 1em
 
 .night-mode
-    background #222
-    color grey
-
-    a
-        color red
-        &:visited
-            color grey
-    h1
-    h2
-    h3
-    h4
-    h5
-        color grey
-    h2
-        border-color red
-    blockquote
-        border-color red
-    .logo svg
-        fill red
-    .tagline
-        color grey
-    .pinstripe
-        background #333
-
-
-    .btn
-    a.btn
-        color red
-        background rgba(@color, 0.2)
-        text-shadow 0 0 1em @color
-        i
-            color darken(red_dark, 30%)
-        &:hover
-        &:focus
-            box-shadow none
-            color red_dark
-            text-shadow 0 0 1em @color
-            background rgba(red_dark, 0.4)
-            i
-                box-shadow none
-                color red_dark
-                text-shadow 0 0 1em @color
-
-    .btn--dark
-    a.btn--dark
+    main = red
+    body
         background #222
-        box-shadow none
-        text-shadow none
-        &:hover
-        &:focus
+        color grey
+
+        .logo svg
+            fill main
+
+        footer
+            border-color main
+            background #333
+            .btn--clear
+                border-color #222
+                &:hover
+                    border-color main
+
+        a
+            color main
+        h1
+        h2
+        h3
+        h4
+        h5
+            color grey
+        h2
+            border-color main
+        blockquote
+            border-color main
+        .pinstripe
+            background #333
+
+
+        .btn
+        a.btn
+            color main
+            background rgba(@color, 0.2)
+            text-shadow 0 0 1em @color
+            i
+                color darken(main, 30%)
+            &:hover
+            &:focus
+                box-shadow none
+                color main
+                text-shadow 0 0 1em @color
+                background rgba(main, 0.4)
+                i
+                    box-shadow none
+                    color red_dark
+                    text-shadow 0 0 1em @color
+
+        .btn--dark
+        a.btn--dark
             background #222
+            box-shadow none
+            text-shadow none
+            &:hover
+            &:focus
+                background #222

@@ -20,11 +20,11 @@ module.exports = function(grunt) {
         }
       },
       compile_stylus: {
-        files: 'private/stylus/*.styl',
+        files: 'src/**/*.styl',
         tasks: ['stylus']
       },
       reloadBrowserOnCSSChange: {
-        files: ['public/css/*.css'],
+        files: ['public/**/*.css'],
         options: {
           livereload: true
         }
