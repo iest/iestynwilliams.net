@@ -1,0 +1,307 @@
+/****************
+
+  Contents:
+    - Reset
+    - Util
+    - Grid
+    - Variables
+    - Atoms
+    - Molecules
+    - Modifiers
+
+****************/
+
+// Imports
+@import reset
+@import util
+@import grid
+
+
+// Variables
+$bg_dark = #2B2F3E
+$bg_light = #F5F5F5
+
+$fg_primary = #7863FF
+$fg_primary_contrast = #E1F5F1
+$fg_secondary = #FF5656
+$fg_light = #9C9EA7
+$fg_dark = $bg_dark
+
+// 400 700
+$body = 'ff-tisa-web-pro', 'Georgia', serif
+$mono = 'fira mono', 'cousine', 'inconsolata', 'menlo', monospace
+
+.wf-loading
+  visibility hidden
+.wf-active
+.wf-inactive
+  visibility visible
+  animation fade-in 400ms ease 1
+@keyframes fade-in
+  0%
+    opacity 0
+  100%
+    opacity 1
+
+
+// Base
+html
+  background $bg_light
+body
+  color $fg_dark
+  font-family $body
+  margin 0
+  padding 1.5em 0
+  margin 0 auto
+  line-height 1.5em
+  word-wrap break-word
+
+// Atoms
+.iw_logo
+  height 1.5em
+  width 1.5em
+  & path
+    fill $fg_primary
+
+h1
+h2
+h3
+h4
+h5
+h6
+  line-height 1.2em
+  font-weight 400
+  margin 1em 0 0.5em
+
+h1
+  font-size 3em
+h2
+  font-size 2em
+h3
+  font-size 1.5em
+h4
+  font-size 1em
+
+a
+  color $fg_primary
+  text-decoration none
+  transition(box-shadow, 250ms, ease)
+  &:hover
+  &:focus
+    box-shadow inset 0 -2px 0 $fg_primary_contrast
+  &:active
+    opacity 0.8
+
+ul
+ol
+  padding-left 1em
+
+code
+pre
+  font-family $mono
+  line-height 1.5em
+  word-wrap: break-word
+
+p a
+  background none
+p code
+  font-size 0.9em
+  padding 0.1em
+  background #FFF8C8
+
+pre
+  padding 0.25em
+  margin 0.5em 0
+  background rgba(black, 0.05)
+  border-radius 3px
+
+.btn
+  display inline-block
+  text-decoration none
+  background $fg_primary_contrast
+  border-radius 6px
+  padding 0.3em 0.5em
+  &:hover
+  &:focus
+    box-shadow inset 0 -2px 0 darken($fg_primary_contrast, 5%)
+  &:active
+    opacity 0.8
+
+// Molecules
+header
+  text-align right
+  display block
+  padding 0
+  margin 0
+  margin-bottom 5em
+  .logo
+    display inline-block
+    float left
+    h1
+      display inline-block
+      font-size 1.5em
+      margin 0
+      color $fg_dark
+    .iw_logo
+      display inline-block
+      vertical-align baseline
+      margin-right 1em
+      position relative
+      top 0.25em
+  nav
+    display inline-block
+    ul
+      margin 0
+      padding 0
+      list-style none
+    li
+      display inline-block
+      font-size 1.5em
+      margin 0 0.5em
+      &:last-child
+        margin-right 0
+
+  @media(max-width: 29em)
+    text-align center
+    .logo
+      float none
+      // display inline-block
+    nav
+      display block
+      margin-top 0.5em
+      padding-top 0.5em
+      border-top 2px solid $fg_primary_contrast
+      li:last-child
+        margin-right 0.5em
+
+.hero
+  max-width 35em
+  line-height 1.25em
+  margin 0 auto
+  margin-bottom 5em
+  h1
+  h2
+    font-size 1.5em
+  h2
+    font-size 1.25em
+  span
+    color $fg_light
+    font-style italic
+
+.post-list
+  // 
+.post-list__item
+  display block
+  margin-bottom 1em
+  h3
+    margin 0
+    font-family $body
+    display inline-block
+    transition(color, 250ms, ease)
+  // color $fg_dark
+  &:focus
+  &:hover
+    h3
+      color $fg_primary
+  &:visited
+    opacity 0.5
+.post-list__date
+  text-align right
+  display inline-block
+  color $fg_light
+
+footer
+  font-size 0.9em
+  color $fg_light
+  padding-top 6em
+  @media(max-width:30em)
+    .tar
+    .tal
+      text-align center
+
+
+
+
+
+
+
+
+
+
+// Organisms
+.post
+  // 
+.post__title
+  margin 0 auto
+  padding-bottom 2em
+  max-width 44em
+  h1
+    line-height 1em
+  p
+    color $fg_light
+.post__content
+  margin 0 auto
+  max-width 35em
+  p
+    margin-bottom 0.75em
+    line-height 1.3em
+    font-size 1.2em
+    &:first-child
+      font-size 1.4em
+      line-height 1.3em
+      // margin-bottom 1em
+
+.weak
+  opacity 0.8
+
+// Highlightjs syntax
+.hljs-class
+  color #629FCF
+.hljs-attribute
+  color #D44410
+.hljs-value
+  color #4E9FCF
+.hljs-keyword
+  color #6740D4
+.hljs-number
+  color #7653C1
+.hljs-string
+  color #C46710
+.hljs-title
+  color #629FCF
+.hljs-params
+  color #D44410
+.hljs-built_in
+  color #7653C1
+.hljs-function
+  background rgba(#6740D4, 0.1)
+.hljs-preprocessor
+  // 
+.hljs-comment
+  color #999
+
+// Night mode
+.night-mode
+  background $fg_dark
+  body
+    color $fg_light
+  a
+    color $fg_secondary
+    &:hover
+    &:focus
+      box-shadow 0 2px 0 $fg_secondary
+  header a
+    background rgba($fg_secondary, 0.1)
+
+  p a
+    background none
+  p code
+    background none
+    color #FFF8C8
+  .iw_logo path
+    fill $fg_secondary
+
+  .post-list__item
+    background none
+
+@import modifiers

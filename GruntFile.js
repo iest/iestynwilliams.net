@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          'public/css/iwnet.css' : 'src/iwnet.styl'
+          'public/styles.css' : 'public/styles.styl'
         }
       }
     },
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         }
       },
       compile_stylus: {
-        files: 'src/**/*.styl',
+        files: 'public/**/*.styl',
         tasks: ['stylus']
       },
       reloadBrowserOnCSSChange: {

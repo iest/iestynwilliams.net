@@ -1,16 +1,36 @@
+/**
+  Imports & confg
+*/
 var
-express = require('express'),
+util = require('util'),
+  express = require('express'),
   app = express(),
   poet = require('poet')(app),
-  moment = require('moment');
+  moment = require('moment'),
+  color = require('colors'),
+  marked = require('marked'),
+  port = process.argv[2];
 
+// Setup syntax highlighting when using marked
+marked.setOptions({
+  highlight: function(code) {
+    return require('highlight.js')
+      .highlightAuto(code)
+      .value;
+  }
+});
+
+// Start poet
 poet
+  .watch()
   .init();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
 app.use(app.router);
+app.use(express.static(__dirname + '/public'));
+
+app.locals.moment = moment;
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -40,5 +60,5 @@ app.use(function(req, res, next) {
     .send('Not found');
 });
 
-app.listen(3000);
-console.log('Server running, listening on 3000');
+app.listen(port || 3000);
+console.log(util.format('Server running on port %s'.green, port));

@@ -1,8 +1,16 @@
 extends layout
 
 block content
-    - var posts = getPosts(0,8)
-    - var page  = 1
-    .post-list
-        - each post in posts
-                include includes/postSnippet
+
+  section.hero.container
+    :markdown
+      # Hello, I'm Iestyn <span>(yes-tin)</span>, a web designer and developer from a mountain in Wales.
+
+      ## I'm currently building stuff for [eysys](http://eysys.com), but you can find me on [github](http://github.com/iest/), [dribbble](http://dribbble.com/iest), and [twitter](http://twitter.com/_iest).
+  
+
+  .grid.container.post-list
+    - each post in getPosts()
+      a.post-list__item(href=post.url)
+        h3.grid__col--70= post.title
+        p.grid__col--30.post-list__date= moment(post.date).fromNow()

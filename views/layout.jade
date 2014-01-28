@@ -1,63 +1,73 @@
-!!!
+doctype html
 html
-    head
-        title Iestyn Williams
-        meta(name='description', content='A web designer and developer based in Cardiff, Wales')
+  head
+    title Iestyn Williams
+    meta(name='description', content='A web designer and developer based in Cardiff, Wales')
 
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-
-
-        link(rel='stylesheet', href='/css/iwnet.css')
-        script(type='text/javascript', src='/scripts.js')
-        //- script(src='http://localhost:35729/livereload.js')
-
-        script(src="//use.typekit.net/prr3yiz.js")
-        script.
-            try{Typekit.load();}catch(e){}
-
-        script.
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-24933644-1', 'iestynwilliams.net');
-            ga('send', 'pageview');
-
-        noscript
-            style.
-                body {
-                    opacity: 1;
-                }
-                body svg {
-                    fill-opacity: 1;
-                }
+    meta(name='viewport', content='width=device-width, initial-scale=1')
 
 
-    body
-        block header
-            header
-                .header
-                    .wrapper
-                        a(href='/').logo
-                            <svg viewBox="0 0 713 576">
-                            <path d="M74.7810945,25.1394112 L103.584931,99.0820766 L29.277556,123.571656 L-0.00385989192,50.2357075 L72.8810768,25.1394112 Z M131.57649,170.939534 L209.531095,371.05771 L350.314677,0 L485.064677,371.05771 L628.194652,25.1394112 L713,25.1394112 L481.712687,575.524921 L348.638682,208.824709 L209.866294,575.860113 L58.2689866,196.18133 Z M131.57649,170.939534"></path>
-                            </svg>
-                        p.tagline Interface design &amp; modern web development.
+    link(rel='stylesheet', href='/styles.css')
+    link(rel='stylesheet', href='/ico-embedded.css')
 
-        .content
-            .wrapper
-                block content
-        footer
-            .wrapper--tight.profile
-                img.profile-image(src='/me_bw.jpg')
-                :markdown
-                    I'm Iestyn *(yes-tin)*, a web designer and developer based in Cardiff, currently building stuff for [eysys](eysys.com).
+    script(type='text/javascript', src='/scripts.js')
+    //- script(src='http://over9000.local:35729/livereload.js')
 
-                .center--inline
-                    a(href='http://twitter.com/_iest').btn--clear
-                        i.icon-twitter
-                    a(href='https://github.com/iest').btn--clear
-                        i.icon-github-circled
-                    a(href='http://dribbble.com/iest').btn--clear
-                        i.icon-dribbble
+    script.
+        (function(d) {
+          var config = {
+            kitId: 'hxz2cxx',
+            scriptTimeout: 2000
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+
+
+  body
+    .grid.container
+      header
+        a(href='/').logo
+          include includes/logo
+          h1 Iestyn Williams
+        nav
+          ul
+            li: a.btn(href='http://twitter.com/_iest'): i.icon-twitter
+            li: a.btn(href='http://github.com/iest/'): i.icon-github-circled
+            li: a.btn(href='http://dribbble.com/iest'): i.icon-dribbble
+
+    .grid
+      block content
+
+    footer
+      .grid.container
+        .grid__col--50.tal
+          script.
+            //<![CDATA[
+            <!--
+            var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
+            "=49){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
+            ".substr(0,ol);}f(\")501,\\\"|v~ma| o300\\\\V^ITN130\\\\V^620\\\\AQt220\\\\7" +
+            "10\\\\Y000\\\\220\\\\320\\\\310\\\\GCHEn\\\\HJGJ500\\\\430\\\\Sl771\\\\q771" +
+            "\\\\;s%&0{zw=w|P{}he1e}dngh#>ddr620\\\\]530\\\\GXQ620\\\\330\\\\320\\\\100\\"+
+            "\\530\\\\100\\\\500\\\\_400\\\\100\\\\310\\\\000\\\\130\\\\010\\\\500\\\\r\\"+
+            "\\\\\"(f};o nruter};))++y(^)i(tAedoCrahc.x(edoCrahCmorf.gnirtS=+o;721=%y{)+" +
+            "+i;l<i;0=i(rof;htgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noitcnuf\")"               ;
+            while(x=eval(x));
+            //-->
+            //]]>
+
+
+
+
+        .grid__col--50.tar
+          :markdown
+            &copy; Copyright Iestyn Williams #{new Date().getFullYear()}
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-24933644-1', 'iestynwilliams.net');
+      ga('send', 'pageview');

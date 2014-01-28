@@ -1,0 +1,47 @@
+// Modifiers
+.tal
+  text-align left
+.tar
+  text-align right
+.tac
+  text-align center
+
+// Paddings & Margins
+types = {
+  p: 'padding'
+  m: 'margin'
+}
+sizes = {
+  s: 0.5em
+  m: 1em
+  l: 2em
+}
+directions = {
+  a: 'all'
+  t: 'top'
+  r: 'right'
+  b: 'bottom'
+  l: 'left'
+}
+
+// Margin & padding reset (just in case)
+.m0
+  margin-top 0
+  margin-right 0
+  margin-bottom 0
+  margin-left 0
+.p0
+  padding-top 0
+  padding-right 0
+  padding-bottom 0
+  padding-left 0
+
+// Outputs .type-direction-size for padding and margin, e.g. `.mts` (margin-top: small), `.prm` (padding-right: medium)
+for tKey, type in types
+  for sKey, size in sizes
+    for dKey, dir in directions
+      .{tKey}{dKey}{sKey}
+        if dKey == a
+          {type} size
+        else
+          {type}-{dir} size

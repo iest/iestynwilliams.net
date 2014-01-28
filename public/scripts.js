@@ -1,9 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-  var currentTime = new Date();
+var now = new Date().getHours();
 
-  currentTime = currentTime.getHours();
-
-  if (currentTime <= 8 || currentTime >= 20) {
-    document.querySelector('html').classList.add('night-mode');
-  }
-});
+if (now >= 20 || now < 8) {
+  // document.querySelector('html').classList.add('night-mode');
+}

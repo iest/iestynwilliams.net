@@ -1,14 +1,12 @@
 extends layout
 
-//- append header
-//-     .wrapper
-//-         a(href='/') &lt; Back to Posts
-
 block content
-    article.post
-        h1= post.title
-                        
-        .grey Posted #{moment(post.date).format('dddd Do MMMM YYYY')}
-
-        div.post.content
-                != post.content
+  .container
+    .post__title
+      h1= post.title
+      p Posted !{moment(post.date).fromNow()}
+    .post__content!= post.content
+  .tac.mtl
+    a(href='/')
+      i.icon-left-open-big
+      |  Homepage
