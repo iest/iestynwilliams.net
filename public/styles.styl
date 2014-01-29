@@ -290,7 +290,9 @@ footer
     &:hover
     &:focus
       box-shadow 0 2px 0 $fg_secondary
-  header a
+  header h1
+    color $fg_light
+  .btn
     background rgba($fg_secondary, 0.1)
 
   p a
@@ -303,5 +305,7 @@ footer
 
   .post-list__item
     background none
+    &:hover h3
+      color $fg_light
 
 @import modifiers

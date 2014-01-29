@@ -109,11 +109,13 @@ footer{font-size:.9em;color:#9c9ea7;padding-top:6em;}
 .night-mode body{color:#9c9ea7}
 .night-mode a{color:#ff5656;}
 .night-mode a:hover,.night-mode a:focus{box-shadow:0 2px 0 #ff5656}
-.night-mode header a{background:rgba(255,86,86,0.1)}
+.night-mode header h1{color:#9c9ea7}
+.night-mode .btn{background:rgba(255,86,86,0.1)}
 .night-mode p a{background:none}
 .night-mode p code{background:none;color:#fff8c8}
 .night-mode .iw_logo path{fill:#ff5656}
-.night-mode .post-list__item{background:none}
+.night-mode .post-list__item{background:none;}
+.night-mode .post-list__item:hover h3{color:#9c9ea7}
 .tal{text-align:left}
 .tar{text-align:right}
 .tac{text-align:center}
