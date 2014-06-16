@@ -1,9 +1,7 @@
-{{{
-    "title"    : "Why Stylus is awesome",
-    "tags"     : [ "stylus", "css", "node" ],
-    "category" : "Web Dev",
-    "date"     : "8-4-2013"
-}}}
+url: why-stylus-is-awesome
+date: 8-4-2013
+
+# Why Stylus is awesome
 
 The first CSS preprocessor I used was [Less](http://lesscss.org). It was drier than [sass](http://sass-lang.com), and once they had in-line `@media` query support, I didn't think  it could get much better.
 

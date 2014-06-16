@@ -1,12 +1,8 @@
-extends layout
-
-block content
-  .container
-    .post__title
-      h1= post.title
-      p Posted !{moment(post.date).fromNow()}
-    .post__content!= post.content
-  .tac.mtl
-    a(href='/')
-      i.icon-left-open-big
-      |  Homepage
+doctype html
+html
+  body
+    nav
+      a(href="/", class=path=="/"?"active":"") Home
+    h1 My awesome blog
+    h2= post.title
+    != post.content

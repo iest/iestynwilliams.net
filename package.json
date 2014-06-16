@@ -1,26 +1,31 @@
 {
   "name": "iestynwilliams.net",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "iestynwilliams.net",
   "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/iest/iestynwilliams.net.git"
   },
+  "private": true,
   "author": "Iestyn Williams",
   "license": "MIT",
   "dependencies": {
-    "poet": ">= 0.1.6",
-    "express": "= 3.0.0rc5",
-    "jade": ">= 0.27.5",
-    "moment": "~2.4.0",
-    "colors": "~0.6.2",
-    "marked": "~0.3.0",
-    "highlight.js": "~8.0.0"
+    "derpjs": "0.0.4",
+    "koa": "^0.8.0",
+    "koa-static": "^1.4.5",
+    "marked": "^0.3.2",
+    "moment": "^2.7.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.2",
-    "grunt-contrib-stylus": "~0.12.0"
+    "co-views": "^0.2.0",
+    "gulp": "^3.8.0",
+    "gulp-stylus": "^1.0.2",
+    "koa-logger": "^1.2.1",
+    "koa-route": "^1.1.4",
+    "koa-static": "^1.4.5",
+    "lodash": "^2.4.1",
+    "nib": "^1.0.2",
+    "stylus": "^0.46.3"
   }
 }

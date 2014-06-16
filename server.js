@@ -1,64 +1,65 @@
-/**
-  Imports & confg
-*/
-var
-util = require('util'),
-  express = require('express'),
-  app = express(),
-  poet = require('poet')(app),
-  moment = require('moment'),
-  color = require('colors'),
-  marked = require('marked'),
-  port = process.argv[2];
+var _ = require('lodash');
+var serve = require('koa-static');
+var route = require('koa-route');
+var views = require('co-views');
+var logger = require('koa-logger');
+var koa = require('koa');
+var app = koa();
+var derp = require('derpjs');
 
-// Setup syntax highlighting when using marked
-marked.setOptions({
-  highlight: function(code) {
-    return require('highlight.js')
-      .highlightAuto(code)
-      .value;
-  }
+// Global variables
+var port = process.argv[2] || 3000;
+
+// Middleware
+app.use(logger());
+app.use(serve(__dirname + '/public'));
+
+// Setup derp
+derp.setup(app);
+var config = app.config;
+
+var render = views(config.view_directory, {
+  default: config.template_extension
 });
 
-// Start poet
-poet
-  .watch()
-  .init();
-
-app.set('view engine', 'jade');
-app.set('views', __dirname + '/views');
-app.use(app.router);
-app.use(express.static(__dirname + '/public'));
-
-app.locals.moment = moment;
-
-app.get('/', function(req, res) {
-  res.render('index');
+// Middleware
+app.use(function * pageNotFound(next) {
+  yield next;
+  if (this.body) return;
+  this.status = 404;
+  this.body = yield render('404');
 });
 
-app.use(function(req, res, next) {
-  res.status(404);
-
-  // respond with html page
-  if (req.accepts('html')) {
-    res.render('404', {
-      url: req.url
-    });
-    return;
-  }
-
-  // respond with json
-  if (req.accepts('json')) {
-    res.send({
-      error: 'Not found'
-    });
-    return;
-  }
-
-  // default to plain-text. send()
-  res.type('txt')
-    .send('Not found');
+app.use(function * locals(next) {
+  this.locals = {
+    moment: require('moment'),
+    path: this.request.path
+  };
+  yield next;
 });
 
-app.listen(port || 3000);
-console.log(util.format('Server running on port %s'.green, port));
+// Routes
+app.use(route.get('/', function * list() {
+  this.body = yield render('list', _.extend(this.locals, {
+    posts: derp.getAllPosts()
+  }));
+}));
+
+app.use(route.get('/:url', function * show(url) {
+  var post = derp.getPost(url);
+  if (!post) return;
+
+  if (post.page) {
+    this.body = yield render('page', _.extend(this.locals, {
+      post: post
+    }));  
+  } else {
+    this.body = yield render('post', _.extend(this.locals, {
+      post: post
+    }));
+  }
+}));
+
+// Now do the work and run the server
+app.listen(port);
+console.log('Listening on port', port);

@@ -1,7 +1,8 @@
-{{{
-    "title"    : "About this site",
-    "date"     : "1-28-14 23:04"
-}}}
+url: about
+page: true
+date: 1-28-14 23:04
+
+# About this site
 
 When I was learning about all this web stuff, it was really hard to find out what were the best tools and techniques. Most websites don't say about how they were built and how they run, and that stuff can be gold dust to people trying to figure out all this stuff.
 

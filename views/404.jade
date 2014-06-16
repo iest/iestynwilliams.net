@@ -1,27 +1,9 @@
-extends layout
+doctype html
+html
+  body
+    nav
+      a(href="/", class=path=="/"?"active":"") Home
+    h1 My awesome blog
 
-block content
-  .container
-    h1 404 Not Found
-
-    - var r = Math.ceil(Math.random() * 4)
-    if r == 1
       :markdown
-        Can a shoe box?
-
-        No, but a tin can.
-    if r == 2
-      :markdown
-        When is a car not a car?
-
-        When it turns into a garage.
-    if r == 3
-      :markdown
-        What's brown and sticky?
-
-        A stick.
-    if r == 4
-      :markdown
-        Where does a general keeps his armies?
-
-        Up his sleevies.
+        # 404 mothertrucker!
