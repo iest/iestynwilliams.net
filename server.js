@@ -16,10 +16,9 @@ app.use(serve(__dirname + '/public'));
 
 // Setup derp
 derp.setup(app);
-var config = app.config;
 
-var render = views(config.view_directory, {
-  default: config.template_extension
+var render = views(app.config.view_directory, {
+  default: app.config.template_extension
 });
 
 // Middleware

@@ -3,7 +3,8 @@ date: 12-8-2013
 
 # Progressive Enhancement: Raising the bar
 
-Progressive enhancement has become a bit of a catch-all term these days (like responsive web design), but it's original definition was as an alternative to *graceful degradation*.
+## Progressive enhancement has become a bit of a catch-all term these days (like responsive web design), but it's original definition was as an alternative to *graceful degradation*.
+
 In older days, web builders would focus on building for the most advanced/capable browsers first, allowing web pages to *degrade* in functionality on older/less capable browsers. However, this often meant that the basic content of a site wasn't even accessible on those older browsers.
 
 In real terms, [progressive enhancement](http://en.wikipedia.org/wiki/Progressive_enhancement) works in the opposite way: start with the content, then build layers of enhancement on top. The end result is that any browser can access the basic content, whilst the more capable browsers have a more enhanced (and probably better) user experience.

@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    link(href="/css/iwnet.css", rel="stylesheet")
+    meta(name="viewport", content="width=device-width")
+    script(src="http://localhost:35729/livereload.js")
+
+    //- TODO: add meta tags
+
+  body
+    header
+      nav
+        a(href="/").logo
+          svg(viewBox="0 0 253 202")
+            <g id="basic" transform="translate(-26.000000, -30.000000)">
+            <path d="M102.746095,160.159488 L152.031475,30 L199.204624,160.159488 L249.311426,38.8183935 L279,38.8183935 L198.031162,231.882421 L151.444744,103.251455 L102.863441,232 L46,89.2992491 L75.1981271,89.2992491 L102.746095,160.159488 Z M55.9078217,39 L26,39 L36.3443888,65 L66,65 L55.9078217,39 Z"></path>
+            </g>
+        ul
+          li: a(href="/", class=path=="/about" ? "":"active") Blog
+          li: a(href="/about", class=path=="/about" ? "active":"") About
+    .container
+      block body

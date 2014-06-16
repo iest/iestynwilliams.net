@@ -1,9 +1,9 @@
 url: why-stylus-is-awesome
 date: 8-4-2013
 
-# Why Stylus is awesome
+# Why Stylus is my favourite CSS preprocessor
 
-The first CSS preprocessor I used was [Less](http://lesscss.org). It was drier than [sass](http://sass-lang.com), and once they had in-line `@media` query support, I didn't think  it could get much better.
+## The first CSS preprocessor I used was [Less](http://lesscss.org). It was drier than [sass](http://sass-lang.com), and once they had in-line `@media` query support, I didn't think  it could get much better.
 
 Then I found [stylus](http://learnboost.github.com/stylus/). Imagine all the best bits out of less & sass (mixins, variables,  colour manipulation), but now with a touch of javascript (functions, conditionals, interpolation, iteration…). What you have is an incredibly flexible language to write better, cleaner outputted CSS, and be able to write it faster.
 

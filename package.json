@@ -11,7 +11,7 @@
   "author": "Iestyn Williams",
   "license": "MIT",
   "dependencies": {
-    "derpjs": "0.0.4",
+    "derpjs": "0.0.5",
     "koa": "^0.8.0",
     "koa-static": "^1.4.5",
     "marked": "^0.3.2",
@@ -20,12 +20,14 @@
   "devDependencies": {
     "co-views": "^0.2.0",
     "gulp": "^3.8.0",
+    "gulp-livereload": "^2.1.0",
     "gulp-stylus": "^1.0.2",
     "koa-logger": "^1.2.1",
     "koa-route": "^1.1.4",
     "koa-static": "^1.4.5",
     "lodash": "^2.4.1",
     "nib": "^1.0.2",
+    "rupture": "^0.1.0",
     "stylus": "^0.46.3"
   }
 }

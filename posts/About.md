@@ -1,8 +1,13 @@
 url: about
 page: true
-date: 1-28-14 23:04
 
-# About this site
+# Hi, I'm Iestyn.
+
+## I’m a designer and engineer based in London, working at [busuu](http://busuu.com). In my spare time I like to read, cook, and build stuff.
+
+<small>It’s pronononced “yes-tin”, and is the Welsh form of Justin, in case you were wondering :)</small>
+
+<!-- # About this site
 
 When I was learning about all this web stuff, it was really hard to find out what were the best tools and techniques. Most websites don't say about how they were built and how they run, and that stuff can be gold dust to people trying to figure out all this stuff.
 
@@ -33,4 +38,4 @@ I'm hosting the site on a [Linode](http://linode.com) box. It was a pretty steep
 ## Open source
 [This whole site is up on github](https://github.com/iest/iestynwilliams.net), so please check it out if you want to see how this site is put together.
 
-Questions? Comments? Criticism? Give me a shout [on twitter](https://twitter.com/_iest).
+Questions? Comments? Criticism? Give me a shout [on twitter](https://twitter.com/_iest). -->

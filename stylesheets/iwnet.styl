@@ -1,0 +1,131 @@
+/*
+  iestynwillams.net styles
+  Copyright Iestyn Williams 2014
+ */
+
+// Imports
+@import "nib"
+@import "rupture"
+
+// Colours
+white = #FFF
+black = #5E5E5E
+grey_dark = #8E8E8E
+grey_light = #DEDEDE
+teal = #07FFDA
+
+// Type
+font_heading = "Futura PT", "Futura", "Helvetica Neue", "Helvetica", sans-serif
+font_body = "Minon Pro", "Georgia", serif
+
+global-reset()
+
+// Main
+body
+  background white
+  font 1.0625em/1.2 font_body
+  padding 1em
+
+h1
+  font 2.176em/1.3 font_heading
+  letter-spacing -0.5px
+  font-weight bold
+  margin-bottom 0.5em
+h2
+  font-size 1.41em
+  font-weight normal
+  margin-bottom 0.5em
+
+p
+  font-size 0.941176471em
+  margin-bottom 0.5em
+
+small
+  color grey_dark
+
+a
+  color teal
+
+header
+  margin-bottom 2em
+
+.logo svg
+  width 1.764705882em
+  height 1.411764706em
+  fill teal
+
+nav
+  font-family font_heading
+  ul
+    display inline-block
+    list-style none
+    height 1.411764706em
+    float right
+  li
+    display inline-block
+    margin-left 1.5em
+    a
+      position relative
+      text-decoration none
+      letter-spacing -0.5px
+      &:after
+        transition all 200ms ease-out
+        opacity 0
+        content ""
+        position absolute
+        bottom -0.25em
+        left 50%
+        background black
+        width 0.235294118em
+        height @width
+        border-radius 100%
+        transform translateX(-50%) translateY(0.5em)
+      &:active:after
+      &.active:after
+        opacity 1
+        transform translateX(-50%)
+      &.active:hover:after
+        background black
+      &:hover:after
+        opacity 1
+        display block
+        background grey_dark
+        transform translateX(-50%)
+
+.container
+  max-width 30em
+  margin 0 auto
+
+.post-list
+  li
+    margin-bottom 1em
+  a
+    font 2.176em/1.29 font_heading
+    text-decoration none
+    color black
+    background teal
+    font-weight bold
+
+
+
+
+
+// At night...
+body
+  background black
+  color grey_light
+
+nav li a
+  &.active:after
+  &:active:after
+  &.active:hover:after
+    background white
+
++above(25em)
+  body
+    padding 2em
+
+for num in (40..60)
+  @media (min-width: num em)
+    body
+      font-size (num * 3)%
