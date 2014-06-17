@@ -3,6 +3,18 @@ html
   head
     link(href="/css/iwnet.css", rel="stylesheet")
     meta(name="viewport", content="width=device-width")
+
+
+    script.
+      (function(d) {
+        var config = {
+          kitId: 'eby7fcd',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+
+
     script(src="http://localhost:35729/livereload.js")
 
     //- TODO: add meta tags
@@ -20,3 +32,9 @@ html
           li: a(href="/about", class=path=="/about" ? "active":"") About
     .container
       block body
+    footer
+      p &copy; #{new Date().getFullYear()}
+      ul
+        li: a(href="") Dribbble
+        li: a(href="") Github
+        li: a(href="") Twitter

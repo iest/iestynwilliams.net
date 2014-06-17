@@ -22,6 +22,7 @@
     "gulp": "^3.8.0",
     "gulp-livereload": "^2.1.0",
     "gulp-stylus": "^1.0.2",
+    "jeet": "^5.2.10",
     "koa-logger": "^1.2.1",
     "koa-route": "^1.1.4",
     "koa-static": "^1.4.5",
