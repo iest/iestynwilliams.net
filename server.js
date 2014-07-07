@@ -15,13 +15,13 @@ app.use(logger());
 app.use(serve(__dirname + '/public'));
 
 // Setup derp
-derp.setup(app);
+derp.setup();
 
-var render = views(app.config.view_directory, {
-  default: app.config.template_extension
-});
+var render = views(__dirname + "/views", {
+  default: "jade"
+}); 
 
-// Middleware
+// 404 handler
 app.use(function * pageNotFound(next) {
   yield next;
   if (this.body) return;
@@ -29,6 +29,7 @@ app.use(function * pageNotFound(next) {
   this.body = yield render('404');
 });
 
+// Locals injector
 app.use(function * locals(next) {
   this.locals = {
     moment: require('moment'),
@@ -43,7 +44,6 @@ app.use(route.get('/', function * list() {
     posts: derp.getAllPosts()
   }));
 }));
-
 app.use(route.get('/:url', function * show(url) {
   var post = derp.getPost(url);
   if (!post) return;

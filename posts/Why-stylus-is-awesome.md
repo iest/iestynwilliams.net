@@ -16,8 +16,6 @@ Another awesome thing about stylus is that because it's indentation based, it do
     overflow hidden
 ```
 
-(*Apologies for the weird syntax highlighting on this post*)
-
 ## Vendor prefixes
 
 One of the biggest pain points of writing CSS is getting the vendor prefixes right. Even though we just recently [lost a rendering engine](http://my.opera.com/ODIN/blog/300-million-users-and-move-to-webkit), if you want any hope of browser backwards-compatibility, you gotta have prefixes. Here's a stylus function to output vendor prefixes easily:
@@ -83,8 +81,6 @@ border-radius: 4px;
 ```
 
 Pretty sweet.
-
-(I'm aware that the `-ms-` and `-o-` prefixes here aren't functional, but you get the point.)
 
 ## Transparent mixins
 
