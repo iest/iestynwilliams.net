@@ -41,7 +41,9 @@ app.use(function * locals(next) {
 // Routes
 app.use(route.get('/', function * list() {
   this.body = yield render('list', _.extend(this.locals, {
-    posts: derp.getAllPosts()
+    posts: derp.getAllPosts().sort(function(a, b) {
+      return a.date < b.date;
+    })
   }));
 }));
 app.use(route.get('/:url', function * show(url) {

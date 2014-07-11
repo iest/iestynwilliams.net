@@ -1,21 +1,28 @@
 doctype html
 html
-  head
+  block head
     link(href="/css/iwnet.css", rel="stylesheet")
     meta(name="viewport", content="width=device-width")
 
-
+    //- Async typekit loader
     script.
-      //- TODO: Perform a pretty fade-in if it takes less than the timeout
-
       (function(d) {
+        function fontsAreSuperSlowDude() {
+          h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+        }
+        function aaaaaawwwwwwYeeaaaaahhhhhhhh() {
+          clearTimeout(t);
+          try {
+            Typekit.load(config)
+          } catch (e) {}
+        }
         var config = {
             kitId: 'eby7fcd',
-            scriptTimeout: 3000
+            scriptTimeout: 300
           },
           h = d.documentElement,
           t = setTimeout(function() {
-            h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            fontsAreSuperSlowDude();
           }, config.scriptTimeout),
           tk = d.createElement("script"),
           f = false,
@@ -28,17 +35,12 @@ html
           a = this.readyState;
           if (f || a && a != "complete" && a != "loaded") return;
           f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config)
-          } catch (e) {}
+          aaaaaawwwwwwYeeaaaaahhhhhhhh();
         };
         s.parentNode.insertBefore(tk, s)
       })(document);
 
-
     script(src="http://localhost:35729/livereload.js")
-
     //- TODO: add meta tags
 
   body
@@ -48,8 +50,8 @@ html
         a(href="/").logo
           svg(viewBox="0 0 114 114"): use(xlink:href="#iw")
         ul
-          li: a(href="/", class=path=="/about" ? "":"active") Blog
-          li: a(href="/about", class=path=="/about" ? "active":"") About
+          li: a(href="/", class=path=="/about" ? "":"active") Writing
+          li: a(href="/about", class=path=="/about" ? "active":"") Who?
           li: a(href="https://dribbble.com/iest", title="Dribbble")
             svg(viewBox="0 0 114 114"): use(xlink:href="#dribbble")
           li: a(href="https://github.com/iest", title="Github")
@@ -59,7 +61,11 @@ html
     .container
       block body
     footer
+      a(href='https://twitter.com/_iest').follow-button
+        svg(viewBox="0 0 114 114"): use(xlink:href="#twitter")
+        | Follow @_iest
       p &copy; Iestyn Williams #{new Date().getFullYear()}
 
     script(src="prettify.js")
+    script(src="moltenleading.min.js")
     script(src="scripts.js")

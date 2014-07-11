@@ -1,4 +1,3 @@
-url: why-stylus-is-awesome
 date: 8-4-2013
 
 # Why Stylus is my favourite CSS preprocessor
@@ -16,7 +15,7 @@ Another awesome thing about stylus is that because it's indentation based, it do
     overflow hidden
 ```
 
-## Vendor prefixes
+### Vendor prefixes
 
 One of the biggest pain points of writing CSS is getting the vendor prefixes right. Even though we just recently [lost a rendering engine](http://my.opera.com/ODIN/blog/300-million-users-and-move-to-webkit), if you want any hope of browser backwards-compatibility, you gotta have prefixes. Here's a stylus function to output vendor prefixes easily:
 
@@ -82,7 +81,7 @@ border-radius: 4px;
 
 Pretty sweet.
 
-## Transparent mixins
+### Transparent mixins
 
 Transparent mixins allow you to *redefine a CSS property as a function*. 
 
@@ -119,7 +118,7 @@ border-radius: 5px;
 
 Just like you'd expect!
 
-## Convinced yet?
+### Convinced yet?
 
 You should be!
 

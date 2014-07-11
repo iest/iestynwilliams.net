@@ -13,11 +13,11 @@ white = #FFF
 black = #5E5E5E
 grey_dark = #8E8E8E
 grey_light = #DEDEDE
-primary = hsla(270, 100%, 50%, 1)
+primary = hsl(260, 70%, 50%)
 
 // Type
 font_heading = "freight-sans-pro", "Helvetica Neue", "Helvetica", sans-serif
-font_body = "ff-tisa-web-pro", "Helvetica", serif
+font_body = "merriweather", "Georgia", serif
 
 // Main
 global-reset()
@@ -32,27 +32,41 @@ html
 
 body
   background white
-  font 1.0625em/1.3 font_body
-  padding-bottom 6em
+  font 1.0625em/1.4 font_body
+  padding-bottom 150px
 
 h1
   font 2.5em/1.2 font_heading
   font-weight bold
   margin-bottom 1em
 h2
-  font-size 1.4em
+  font 1.4em/1.2 font_body
   font-weight normal
   margin-bottom 1em
 
 h3
-  font-size 1.2em
+  font 1.4em/1.2 font_heading
   font-weight bold
-  margin-bottom 1em
+  margin-bottom 0.5em
+
+h4
+  font 0.9em/1.2 font_heading
+  margin-bottom 0.5em
+  font-weight bold
+  text-transform uppercase
 
 p
   font-size 1em
   line-height 1.5
   margin-bottom 1em
+
+em
+  font-style italic
+strong
+  font-weight bold
+blockquote
+  border-left 2px solid grey_light
+  padding-left 0.5em
 
 pre
   max-width 100%
@@ -60,24 +74,39 @@ pre
   background #f5f5f5
   color #2F6F9F
   padding 0.5em
+  margin 1em 0
   border-radius 3px
 code
-  font-family "Fira Sans Mono", "Fira Mono"
+  font-family "Fira Sans Mono", "Fira Mono", monospace
   font-size 80%
-  color #D08770
+  color #F2777A
+h1
+h2
+h3
+h4
+h5
+p
+  code
+    border-radius 3px
+    font-size 1em
+    text-transform initial
+  img
+    max-width 100%
+    display block
+    margin 1em 0
 
 .pln
-  color: #D08770 //plain text
+  color: #4F5B66 //plain text
 .str
-  color: #60B029 //string content
+  color: #A3BE8C //string content
 .kwd
-  color: #EBCB8B //a keyword
+  color: #D08770 //a keyword
 .com
-  color: #65737E //a comment
+  color: #A7ADBA //a comment
 .typ
-  color: #EBCB8B //a type name
+  color: #D08770 //a type name
 .lit
-  color: #C0C5CE //a literal value
+  color: #96B5B4 //a literal value
 //punctuation, lisp open bracket, lisp close bracket
 .pun, .opn, .clo
   color: #D08770
@@ -92,30 +121,37 @@ code
 .fun
   color: #8FA1B3 //a function name
 
-h1
-h2
-p
-  code
-    border-radius 3px
-
 .link,
 a
   color primary
   text-decoration none
   background rgba(primary, 0.025)
   text-decoration underline
+  transition background 200ms ease
   &:hover
     text-decoration underline
+    background rgba(primary, 0.08)
   &:visited
     color black
 
-small
+aside
   color grey_dark
+  font-size 80%
+  margin-bottom 1em
++above(54em)
+  aside
+    font-family font_heading
+    position absolute
+    width 10em
+    left -10em
+    text-align right
+    padding 0 0.5em
 
 article
   border-bottom 2px solid grey_light
   padding-bottom 2em
   margin-bottom 5em
+  position relative
   & > a
     color black
     text-decoration none
@@ -124,12 +160,14 @@ article
   h2
     margin 1em 0 0.5em
 
-.logo
-  background none
-  svg
-    width 1.764705882em
-    height 1.411764706em
-    fill primary
+  ul
+    list-style disc
+    margin-left 1em
+  ol
+    list-style decimal
+    margin-left 1em
+article + article
+  margin-top 8em
 
 .nav
   font-family font_heading
@@ -138,7 +176,11 @@ article
   left 0
   width 100%
   margin 0 auto
-  background rgba(white, 0.8)
+  transition background 200ms ease
+  z-index 1000
+  &.is-floating
+    background rgba(white, 0.9)
+    box-shadow inset 0 -0.5px 0 primary
 
 .nav__inner
   max-width 40em
@@ -146,9 +188,11 @@ article
   padding 1em
   ul
     display inline-block
+    vertical-align middle
     list-style none
-    height 1.411764706em
     float right
+    position relative
+    bottom 5px
   li
     display inline-block
     vertical-align middle
@@ -162,6 +206,7 @@ article
       padding 0.25em 0.5em
       border-bottom 3px solid grey_light
       transition all 300ms ease
+      height 2em
       svg
         height 1.3em
         width @height
@@ -178,10 +223,21 @@ article
       &:hover
         border-bottom 3px solid rgba(@color, 0.5)
 
+.logo
+  background none
+  display inline-block
+  svg
+    vertical-align middle
+    width 1.764705882em
+    height 1.411764706em
+    fill primary
+
 .container
-  max-width 35em
+  max-width 38em
   margin 5em auto 0
-  padding 0 0.5em
+  padding 0 0.75em
+.no-fun-nav .container
+  margin 0 auto
 
 footer
   font-family font_heading
@@ -202,10 +258,37 @@ footer
     display inline-block
     margin-right 1em
 
-
+.follow-button
+  display inline-block
+  text-decoration none
+  border 2px solid primary
+  border-radius 6px
+  padding 0.25em 0.5em
+  margin-bottom 2em
+  color black
+  fill @color
+  transition all 200ms ease-out
+  svg
+    transition all 200ms ease-out
+  &:hover
+    text-decoration none
+    color primary
+    fill @color
+  &:active
+    background primary
+    color white
+    fill @color
+    transition initial
+  svg
+    display inline-block
+    width 1.5em
+    height @width
+    vertical-align middle
+    margin-right 0.4em
 
 // At night...
-night = hsl(170, 100%, 50%)
+night = hsl(150, 90%, 50%)
+black = darken(black, 30%)
 body.night-mode
   background black
   color grey_light
@@ -215,26 +298,42 @@ body.night-mode
     background rgba(night, 0.05)
     svg
       fill night
-  .logo svg
-    fill night
-  .nav ul li a.active
+  .follow-button
+    background transparent
     border-color night
-  .nav ul li a:hover
-    border-color rgba(night, 0.6)
-  .nav
+    color white
+    svg
+      fill white
+    &:hover
+      color night
+      svg
+        fill night
+  .logo
+    background none
+    svg
+      fill night
+  .nav ul li a
+    background none
+    border-color grey_dark
+    &:hover
+      border-color rgba(night, 0.6)
+    &.active
+      border-color night
+  .nav.is-floating
     background rgba(black, 0.8)
+    box-shadow inset 0 -0.5px 0 night
   article > a
     color grey_light
     &:hover
       color grey_light
   pre
-    background #2B303B
+    background rgba(#2B303B, 0.5)
   code
-    color hsl(140, 100%, 80%)
+    color lighten(night, 80%)
   .pln
-    color: #D08770 //plain text
+    color: #D3D0C8 //plain text
   .str
-    color: #60B029 //string content
+    color: #66CCCC //string content
   .kwd
     color: #EBCB8B //a keyword
   .com
@@ -256,13 +355,13 @@ body.night-mode
     color: #8FA1B3 //a declaration; a variable name
   .fun
     color: #8FA1B3 //a function name
-
+  small
+    color rgba(grey_light, 0.7)
 
 // Breakpoints
 
 +above(20em)
   .container
-    padding 0 1.5em
     font-size 90%
 +above(48em)
   body
@@ -273,3 +372,5 @@ body.night-mode
 
 .wf-loading
   opacity 0
+.wf-inactive
+  opacity 1

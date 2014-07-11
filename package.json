@@ -11,7 +11,7 @@
   "author": "Iestyn Williams",
   "license": "MIT",
   "dependencies": {
-    "derpjs": "0.1.2",
+    "derpjs": "^0.2.2",
     "jade": "^1.3.1",
     "koa": "^0.8.0",
     "koa-static": "^1.4.5",
