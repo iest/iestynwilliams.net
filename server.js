@@ -8,18 +8,45 @@ var app = koa();
 var derp = require('derpjs');
 
 // Global variables
+var Analytics = require('analytics-node');
+var analytics = new Analytics('86maoimpub');
 var port = process.argv[2] || 3000;
+
+// Random UUID generator
+var guid = (function() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return function() {
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+  };
+})();
 
 // Middleware
 app.use(logger());
 app.use(serve(__dirname + '/public'));
+
+app.use(function * analyse(next) {
+  yield next;
+  var _this = this;
+  analytics.page({
+    anonymousId: guid(),
+    name: _this.originalUrl,
+    properties: {
+      user_agent: _this.request.header["user-agent"]
+    }
+  });
+});
 
 // Setup derp
 derp.setup();
 
 var render = views(__dirname + "/views", {
   default: "jade"
-}); 
+});
 
 // 404 handler
 app.use(function * pageNotFound(next) {
@@ -41,9 +68,10 @@ app.use(function * locals(next) {
 // Routes
 app.use(route.get('/', function * list() {
   this.body = yield render('list', _.extend(this.locals, {
-    posts: derp.getAllPosts().sort(function(a, b) {
-      return a.date < b.date;
-    })
+    posts: derp.getAllPosts()
+      .sort(function(a, b) {
+        return a.date < b.date;
+      })
   }));
 }));
 app.use(route.get('/:url', function * show(url) {
@@ -53,7 +81,7 @@ app.use(route.get('/:url', function * show(url) {
   if (post.page) {
     this.body = yield render('page', _.extend(this.locals, {
       post: post
-    }));  
+    }));
   } else {
     this.body = yield render('post', _.extend(this.locals, {
       post: post
