@@ -35,7 +35,6 @@ global-reset()
 html
   position relative
   min-height 100%
-  transition all 200ms ease-in
 
 body
   background white
@@ -91,7 +90,8 @@ code
   font-size 80%
   border 1px solid rgba(#000, 0.05)
   background rgba(#000, 0.025)
-  padding 0 0.2em
+  padding 0 0.1em
+  margin 0 -0.1em
 h1
 h2
 h3
@@ -166,8 +166,7 @@ aside
     text-align right
 
 article
-  // border-bottom 2px solid grey_light
-  box-shadow inset 0 -0.5px 0 grey_light
+  border-bottom 1px solid grey_light
   padding-bottom 2em
   margin-bottom 5em
   position relative
@@ -189,19 +188,18 @@ article + article
   margin-top 8em
 
 header
-  position relative
+  position absolute
   top 4em
-  width 15rem
+  left 0
+  width 100%
   margin 0 auto
-  +above(33em)
-    width initial
   h1
-    font-size 0.6em
+    font-size 0.7em
     text-transform uppercase
     text-align center
     opacity 0.5
     font-weight 200
-    letter-spacing 0.5em
+    letter-spacing 0.4em
     line-height 1.5
 
 .nav
@@ -349,8 +347,13 @@ body.night-mode
       color grey_light
   pre
     background rgba(#2B303B, 0.5)
+    code
+      background none
+      border none
   code
     color lighten(night, 80%)
+    border 1px solid rgba(#fff, 0.1)
+    background rgba(#fff, 0.1)
   .pln
     color: #D3D0C8 //plain text
   .str
@@ -376,8 +379,6 @@ body.night-mode
     color: #8FA1B3 //a declaration; a variable name
   .fun
     color: #8FA1B3 //a function name
-  small
-    color rgba(grey_light, 0.7)
 
 // Breakpoints
 
