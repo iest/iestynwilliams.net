@@ -6,6 +6,11 @@ html
 
     //- Async typekit loader
     script.
+      // Night mode 8pm to 8am
+      var now = new Date().getHours();
+      if (now >= 20 || now < 8) {
+        document.documentElement.className += ' night-mode';
+      }
       (function(d) {
         function fontsAreSuperSlowDude() {
           h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
@@ -40,8 +45,6 @@ html
         s.parentNode.insertBefore(tk, s)
       })(document);
 
-    script(src="http://localhost:35729/livereload.js")
-    //- TODO: add meta tags
 
   body
     include icons

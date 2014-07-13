@@ -10,12 +10,6 @@
   Written with <3 by @_iest
  */
 
-// Night mode 8pm to 8am
-var now = new Date().getHours();
-if (now >= 20 || now < 8) {
-  document.querySelector('body').className += ' night-mode';
-}
-
 // Scrolly nav thing
 var $nav = document.querySelector("nav"),
   navHeight, lastScrollTop, navTranslate, isFloating;

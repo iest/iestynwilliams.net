@@ -469,107 +469,107 @@ footer li {
   vertical-align: middle;
   margin-right: 0.4em;
 }
-body.night-mode {
+.night-mode body {
   background: #424242;
   color: #dedede;
 }
-body.night-mode a,
-body.night-mode .link {
+.night-mode body a,
+.night-mode body .link {
   color: #0df280;
   background: rgba(13,242,128,0.05);
 }
-body.night-mode a svg,
-body.night-mode .link svg {
+.night-mode body a svg,
+.night-mode body .link svg {
   fill: #0df280;
 }
-body.night-mode .follow-button {
+.night-mode body .follow-button {
   background: transparent;
   border-color: #0df280;
   color: #fff;
 }
-body.night-mode .follow-button svg {
+.night-mode body .follow-button svg {
   fill: #fff;
 }
-body.night-mode .follow-button:hover {
+.night-mode body .follow-button:hover {
   color: #0df280;
 }
-body.night-mode .follow-button:hover svg {
+.night-mode body .follow-button:hover svg {
   fill: #0df280;
 }
-body.night-mode .logo {
+.night-mode body .logo {
   background: none;
 }
-body.night-mode .logo svg {
+.night-mode body .logo svg {
   fill: #0df280;
 }
-body.night-mode .nav ul li a {
+.night-mode body .nav ul li a {
   background: none;
   border-color: #8e8e8e;
 }
-body.night-mode .nav ul li a:hover {
+.night-mode body .nav ul li a:hover {
   border-color: rgba(13,242,128,0.6);
 }
-body.night-mode .nav ul li a.active {
+.night-mode body .nav ul li a.active {
   border-color: #0df280;
 }
-body.night-mode .nav.is-floating {
+.night-mode body .nav.is-floating {
   background: rgba(66,66,66,0.9);
 }
-body.night-mode article > a {
+.night-mode body article > a {
   color: #dedede;
 }
-body.night-mode article > a:hover {
+.night-mode body article > a:hover {
   color: #dedede;
 }
-body.night-mode pre {
+.night-mode body pre {
   background: rgba(43,48,59,0.5);
 }
-body.night-mode pre code {
+.night-mode body pre code {
   background: none;
   border: none;
 }
-body.night-mode code {
+.night-mode body code {
   color: #cffce6;
   border: 1px solid rgba(255,255,255,0.1);
   background: rgba(255,255,255,0.1);
 }
-body.night-mode .pln {
+.night-mode body .pln {
   color: #d3d0c8;
 }
-body.night-mode .str {
+.night-mode body .str {
   color: #6cc;
 }
-body.night-mode .kwd {
+.night-mode body .kwd {
   color: #ebcb8b;
 }
-body.night-mode .com {
+.night-mode body .com {
   color: #65737e;
 }
-body.night-mode .typ {
+.night-mode body .typ {
   color: #ebcb8b;
 }
-body.night-mode .lit {
+.night-mode body .lit {
   color: #c0c5ce;
 }
-body.night-mode .pun,
-body.night-mode .opn,
-body.night-mode .clo {
+.night-mode body .pun,
+.night-mode body .opn,
+.night-mode body .clo {
   color: #d08770;
 }
-body.night-mode .tag {
+.night-mode body .tag {
   color: #bf616a;
 }
-body.night-mode .atn {
+.night-mode body .atn {
   color: #d08770;
 }
-body.night-mode .atv {
+.night-mode body .atv {
   color: #a3be8c;
 }
-body.night-mode .dec,
-body.night-mode .var {
+.night-mode body .dec,
+.night-mode body .var {
   color: #8fa1b3;
 }
-body.night-mode .fun {
+.night-mode body .fun {
   color: #8fa1b3;
 }
 @media only screen and (min-width: 20em) {
