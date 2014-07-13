@@ -1,6 +1,13 @@
-/*
-  iestynwillams.net styles
-  Copyright Iestyn Williams 2014
+/**
+  __                __
+  \_\      /\      / /
+    _     /  \    / /
+    \ \  / /\ \  / /
+     \ \/ /  \ \/ /
+      \  /    \  /
+       \/      \/
+
+  Written with <3 by @_iest
  */
 html,
 body,
@@ -260,17 +267,18 @@ article > a:hover:visited {
 }
 small {
   font-size: 80%;
+  font-style: italic;
 }
 aside {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
+  font-family: "freight-sans-pro", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 80%;
   margin-bottom: 1em;
 }
 @media only screen and (min-width: 64em) {
   aside {
-    font-family: "freight-sans-pro", "Helvetica Neue", "Helvetica", sans-serif;
     position: absolute;
     width: 10em;
     left: -11em;
@@ -301,6 +309,28 @@ article ol {
 }
 article + article {
   margin-top: 8em;
+}
+header {
+  position: relative;
+  top: 4em;
+  width: 15rem;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 33em) {
+  header {
+    width: initial;
+  }
+}
+header h1 {
+  font-size: 0.6em;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  font-weight: 200;
+  letter-spacing: 0.5em;
+  line-height: 1.5;
 }
 .nav {
   font-family: "freight-sans-pro", "Helvetica Neue", "Helvetica", sans-serif;

@@ -1,10 +1,22 @@
-// Night mode setter
-var now = new Date()
-  .getHours();
+/**
+  __                __
+  \_\      /\      / /
+    _     /  \    / /
+    \ \  / /\ \  / /
+     \ \/ /  \ \/ /
+      \  /    \  /
+       \/      \/
+
+  Written with <3 by @_iest
+ */
+
+// Night mode 8pm to 8am
+var now = new Date().getHours();
 if (now >= 20 || now < 8) {
   document.querySelector('body').className += ' night-mode';
 }
 
+// Scrolly nav thing
 var $nav = document.querySelector("nav"),
   navHeight, lastScrollTop, navTranslate, isFloating;
 
@@ -86,16 +98,15 @@ for (var i = 0; i < codes.length; i++) {
 prettyPrint();
 
 // Molten leading
-moltenLeading("h1", {
+moltenLeading("article h1", {
   minline: 1.1,
   maxline: 1.5,
 });
-moltenLeading("h2", {
+moltenLeading("article h2", {
   minline: 1.4,
   maxline: 1.8,
 });
-
-moltenLeading("p", {
+moltenLeading("article p", {
   minline: 1.3,
   maxline: 1.7,
 });
