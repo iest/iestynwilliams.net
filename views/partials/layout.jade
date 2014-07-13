@@ -47,16 +47,16 @@ html
     include icons
     nav.nav
       .nav__inner
-        a(href="/").logo
-          svg(viewBox="0 0 114 114"): use(xlink:href="#iw")
         ul
-          li: a(href="/", class=path=="/about" ? "":"active") Writing
-          li: a(href="/about", class=path=="/about" ? "active":"") Who?
-          li: a(href="https://dribbble.com/iest", title="Dribbble")
+          li: a(href="/", class=path=="/about" ? "":"active", title="Home")
+            svg(viewBox="0 0 114 114"): use(xlink:href="#iw")
+          li: a(href="/about", class=path=="/about" ? "active":"", title="About iest")
+            svg(viewBox="0 0 114 114"): use(xlink:href="#info")
+          li: a(href="https://dribbble.com/iest", title="iest on Dribbble")
             svg(viewBox="0 0 114 114"): use(xlink:href="#dribbble")
-          li: a(href="https://github.com/iest", title="Github")
+          li: a(href="https://github.com/iest", title="iest on Github")
             svg(viewBox="0 0 114 114"): use(xlink:href="#github")
-          li: a(href="https://twitter.com/_iest", title="Twitter")
+          li: a(href="https://twitter.com/_iest", title="@_iest on Twitter")
             svg(viewBox="0 0 114 114"): use(xlink:href="#twitter")
     .container
       block body

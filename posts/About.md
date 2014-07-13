@@ -7,7 +7,7 @@ page: true
 
 <small>It’s pronononced “yes-tin”, and is the Welsh form of "Justin", in case you were wondering :)</small>
 
-### About this site
+### This site
 The code for this site is all up on [github](https://github.com/iest/iestynwilliams.net).
 
 Fonts are served by [Typekit](http://typekit.com/), with headings in Freight Sans Pro, and body text in Merriweather.

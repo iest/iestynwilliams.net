@@ -2,8 +2,7 @@
 var now = new Date()
   .getHours();
 if (now >= 20 || now < 8) {
-  document.querySelector('body')
-    .className += ' night-mode';
+  document.querySelector('body').className += ' night-mode';
 }
 
 var $nav = document.querySelector("nav"),

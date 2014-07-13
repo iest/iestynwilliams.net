@@ -14,7 +14,7 @@ gulp.task('styles', function () {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./stylesheets/**/*.styl', ['styles']);
+  gulp.watch(['./stylesheets/**/*.styl', './views/**/*.jade'], ['styles']);
 });
 
 gulp.task('default', ['styles', 'watch']);
