@@ -108,6 +108,11 @@ a img {
 html {
   position: relative;
   min-height: 100%;
+  -webkit-transition: opacity 200ms ease;
+  -moz-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+  -ms-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
 }
 body {
   background: #fff;
