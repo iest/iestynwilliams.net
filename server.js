@@ -4,40 +4,35 @@ var route = require('koa-route');
 var views = require('co-views');
 var logger = require('koa-logger');
 var koa = require('koa');
-var app = koa();
+var app = koa({
+  proxy: true
+});
 var derp = require('derpjs');
+var Datastore = require('nedb'),
+  db = new Datastore({
+    filename: '_datastore',
+    autoload: true
+  });
 
 // Global variables
-var Analytics = require('analytics-node');
-var analytics = new Analytics('86maoimpub');
 var port = process.argv[2] || 3000;
-
-// Random UUID generator
-var guid = (function() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  }
-  return function() {
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
-  };
-})();
 
 // Middleware
 app.use(logger());
 app.use(serve(__dirname + '/public'));
 
-app.use(function * analyse(next) {
+// Super simple analytics
+app.use(function * (next) {
+  var startTime = new Date().getTime();
   yield next;
-  var _this = this;
-  analytics.page({
-    anonymousId: guid(),
-    name: _this.originalUrl,
-    properties: {
-      user_agent: _this.request.header["user-agent"]
-    }
+  var ctx = this;
+  var endTime = new Date().getTime();
+  db.insert({
+    url: ctx.url,
+    date: new Date(),
+    user_agent: ctx.header['user-agent'],
+    ip: ctx.ip,
+    responseTime: endTime - startTime
   });
 });
 
@@ -89,6 +84,6 @@ app.use(route.get('/:url', function * show(url) {
   }
 }));
 
-// Now do the work and run the server
+// All right stop, collaborate and listen
 app.listen(port);
 console.log('Listening on port', port);
