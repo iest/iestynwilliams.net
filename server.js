@@ -31,7 +31,7 @@ app.use(function * (next) {
     url: ctx.url,
     date: new Date(),
     user_agent: ctx.header['user-agent'],
-    ip: ctx.ip,
+    ip: ctx.header['x-forwarded-for'],
     responseTime: endTime - startTime
   });
 });
