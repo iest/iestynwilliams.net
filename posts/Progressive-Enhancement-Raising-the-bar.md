@@ -1,4 +1,5 @@
 url: progressive-enhancement
+tags: web
 date: 12-8-2013
 
 # Progressive Enhancement: Raising the bar

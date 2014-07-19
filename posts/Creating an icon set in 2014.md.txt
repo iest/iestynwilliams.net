@@ -1,4 +1,5 @@
 url: icons-for-the-web-in-2014
+tags: svg, web
 date: 13 July 2014
 
 Talk about making SVG icons for the modern web
