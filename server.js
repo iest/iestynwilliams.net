@@ -16,11 +16,11 @@ var port = process.argv[2] || 3000;
 var development = process.env.NODE_ENV !== 'production';
 
 function * renderApp(next) {
+  var ctx = this;
   var path = this.path;
   var app = App({
     path: path
   });
-  var ctx = this;
   ReactAsync.renderComponentToStringWithAsyncState(app, function(err, markup) {
     if (err) {
       console.log(err);
@@ -36,25 +36,16 @@ var app = koa({
   proxy: true
 });
 
-// app.use(browserify({
-//   root: 'client',
-//   debug: true,
-//   transform: reactify,
-//   production: true
-// }));
-
-function * bundle(next) {
-  var b = browserify();
-  b.add('./client.js');
-  b.transform(reactify);
-  this.body = b.bundle();
-}
-
 app.use(reqLogger());
 app.use(logger());
 
 if (development) {
-  app.use(route.get('/public/bundle.js', bundle));
+  app.use(route.get('/public/bundle.js', function * bundle(next) {
+    var b = browserify();
+    b.add('./client.js');
+    b.transform(reactify);
+    this.body = b.bundle();
+  }));
 }
 
 app.use(serve(__dirname + '/public'));

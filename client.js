@@ -74,7 +74,7 @@ var Test = React.createClass({
   }
 });
 
-var App = React.createClass({
+module.exports = React.createClass({
   render: function() {
     return (
       <html>
@@ -94,8 +94,6 @@ var App = React.createClass({
     );
   }
 });
-
-module.exports = App;
 
 if (typeof window !== 'undefined') {
   window.onload = function() {
