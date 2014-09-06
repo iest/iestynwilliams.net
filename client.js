@@ -1,6 +1,25 @@
 /**
  * @jsx React.DOM
  */
+
+ /**
+  * TODO:
+  * - Create client folder, move components into it
+  * - Figure out how to handle non-node (browser) APIs
+  * - Plan new site / iA
+  *
+  * COMPONENTS
+  * - Header/nav/logo
+  * - Post list
+  * - Post
+  * - Colophon
+  *
+  * PAGES
+  * - Post list
+  * - Post
+  * - Tags/tag search
+  */
+
 var React = require('react');
 var ReactAsync = require('react-async');
 var ReactRouter = require('react-router-component');
@@ -56,6 +75,8 @@ var NotFoundHandler = React.createClass({
 });
 
 var Nav = React.createClass({
+  // TODO:
+  // Get links knowing if they should be active or not
   render: function() {
     return (
       <ul>
@@ -74,7 +95,7 @@ var Test = React.createClass({
   }
 });
 
-module.exports = React.createClass({
+var App = React.createClass({
   render: function() {
     return (
       <html>
@@ -83,17 +104,19 @@ module.exports = React.createClass({
         </head>
         <body>
           <Nav />
-          <Locations className="App" path={this.props.path}>
+          <Locations path={this.props.path}>
             <Location path="/" handler={HomePage} />
             <Location path="/test" handler={Test} />
             <NotFound handler={NotFoundHandler} />
           </Locations>
-          <script src="/bundle.js" />
+          <script async src="/bundle.js" />
         </body>
       </html>
     );
   }
 });
+
+module.exports = App;
 
 if (typeof window !== 'undefined') {
   window.onload = function() {

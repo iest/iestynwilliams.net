@@ -16,6 +16,7 @@ var port = process.argv[2] || 3000;
 var development = process.env.NODE_ENV !== 'production';
 
 function * renderApp(next) {
+  console.time("rendering App");
   var ctx = this;
   var path = this.path;
   var app = App({
@@ -27,7 +28,15 @@ function * renderApp(next) {
       return;
     }
     ctx.body = '<!doctype html>\n' + markup;
+    console.timeEnd("rendering App");
   });
+  yield next;
+}
+
+function * api(next) {
+  var ctx = this;
+  ctx.body = "api!";
+  yield next;
 }
 
 derp.setup();
@@ -40,15 +49,24 @@ app.use(reqLogger());
 app.use(logger());
 
 if (development) {
-  app.use(route.get('/public/bundle.js', function * bundle(next) {
+  app.use(route.get('/bundle.js', function * bundle(next) {
     var b = browserify();
     b.add('./client.js');
     b.transform(reactify);
     this.body = b.bundle();
+    yield next;
   }));
 }
 
 app.use(serve(__dirname + '/public'));
+// app.use(route.get('/api/:postid', api));
+
+// Need API for:
+// - Get all posts
+// - Get single post
+// - Get posts by tag
+// - Get posts by date?
+
 app.use(renderApp);
 
 app.listen(port, function() {
