@@ -1,4 +1,20 @@
-iestynwilliams.net
-==================
+# iestynwilliams.net
 
-Source code for my personal site. Feel free to take a look around to see how it's built.
+
+## TODO
+- Improve derpjs to use multimarkdown
+- Write & build styleguide
+
+### React app
+- Fully client-side app
+- Renders on the server
+
+### Super-fast first-load
+- Server-side rendering
+- Above-fold inline styles
+
+### Progressively enhanced
+- Make it work without JS (react router fallback)
+
+### Tracking
+- Google Analytics

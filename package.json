@@ -11,52 +11,33 @@
   "author": "Iestyn Williams",
   "license": "MIT",
   "dependencies": {
-    "derpjs": "^0.2.2",
-    "express": "~4.1.1",
-    "fibers": "^1.0.1",
-    "koa": "^0.8.0",
-    "koa-logger": "^1.2.1",
-    "koa-route": "^1.1.4",
-    "koa-static": "^1.4.5",
-    "marked": "^0.3.2",
-    "moment": "^2.7.0",
-    "nedb": "^0.10.6",
-    "node-jsx": "~0.10.0",
-    "react": "~0.10.0",
-    "react-async": "~0.9.1",
-    "react-router-component": "~0.18.2",
-    "reactify": "^0.14.0",
-    "superagent": "~0.18.0",
-    "browserify": "~4.2.1"
+    "express": "^4.8.8",
+    "gulp": "^3.8.7",
+    "node-jsx": "^0.11.0",
+    "react": "^0.11.1",
+    "react-simple-router": "0.0.9"
   },
   "devDependencies": {
     "gulp": "^3.8.0",
-    "gulp-livereload": "^2.1.0",
     "gulp-stylus": "^1.0.2",
+    "gulp-livereload": "2.1.0",
     "browserify": "~3.44.2",
-    "koa-browserify": "0.0.4",
-    "supervisor": "~0.6.0",
-    "uglify-js": "~2.4.13",
-    "lodash": "^2.4.1",
     "nib": "^1.0.2",
     "rupture": "^0.1.0",
     "jeet": "^5.2.10",
-    "stylus": "^0.46.3",
-    "uglify-js": "~2.4.13",
-    "reactify": "~0.13.1",
-    "envify": "~1.2.0",
-    "browserify": "~3.44.2"
+    "stylus": "^0.46.3"
   },
   "browserify": {
     "transform": [
-      ["reactify", {"harmony": true}]
+      [
+        "reactify",
+        {
+          "harmony": true
+        }
+      ]
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "supervisor --harmony -i node_modules -e js,jsx server.js",
-    "build": "NODE_ENV=production browserify ./client.js | uglifyjs -cm 2>/dev/null > public/bundle.js",
-    "start-prod": "NODE_ENV=production nohup node server.js &",
-    "clean": "rm -f ./public/bundle.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
