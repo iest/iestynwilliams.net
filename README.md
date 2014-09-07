@@ -4,6 +4,8 @@
 ## TODO
 - [ ] Write `Link` component that knows if it should be active or not by checking the current active route
 - [ ] Improve derpjs to use multimarkdown
+- [ ] Plan out site
+- [ ] Create site visuals
 - [ ] Write & build styleguide
 - [ ] Above-fold inline styles
 - [ ] Google Analytics for tracking
