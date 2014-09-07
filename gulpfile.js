@@ -12,21 +12,24 @@ gulp.task('styles', function() {
     .pipe(stylus({
       use: [nib(), rupture(), jeet()]
     }))
-    .pipe(gulp.dest('./public/css'))
-    .pipe(livereload());
+    .pipe(gulp.dest('./public/css'));
+    // .pipe(livereload());
 });
 
 gulp.task('build', function() {
-  return browserify()
+  return browserify("./client")
     .require("react-simple-router")
     .require("react")
     .bundle()
-    // .on("end", startServer)
-    .pipe(fs.createWriteStream("bundle.js"));
+    .on("end", function() {
+      // Livereload here
+    })
+    .pipe(fs.createWriteStream("./public/bundle.js"));
 });
 
 gulp.task('watch', function() {
   gulp.watch(['./stylesheets/**/*.styl', './views/**/*.jade'], ['styles']);
+  gulp.watch('./client/**/*.js', ['build']);
 });
 
-gulp.task('default', ['styles', 'watch']);
+gulp.task('default', ['styles', 'build', 'watch']);

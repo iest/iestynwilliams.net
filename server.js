@@ -17,10 +17,15 @@ Server.get('*', function(req, res) {
   }
 
   if (path === "/bundle.js") {
-    return fs.createReadStream("bundle.js").pipe(res);
+    return res.sendFile(__dirname + "/public/bundle.js");
   }
 
-  res.send(React.renderComponentToString(App({path: path})));
+  if (path === "/iwnet.css") {
+    return res.sendFile(__dirname + "/public/css/iwnet.css");
+  }
+
+  var renderedApp = React.renderComponentToString(App({path: path}));
+  res.send("<!doctype html>" + renderedApp);
 });
 
 var server = Server.listen(port, function() {
