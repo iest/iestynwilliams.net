@@ -5,32 +5,9 @@
 var React = require('react');
 var Router = require("react-simple-router");
 
-var NotFound = React.createClass({
-  render: function(){
-    return <div>{"Page Not Found: " + this.props.path}</div>;
-  }
-});
-
-var Navigation = React.createClass({
-  render: function() {
-
-    return (
-      <ul>
-        <li>{this.props.activePath}</li>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog/first">First</a></li>
-        <li><a href="/blog/second">second</a></li>
-      </ul>
-      );
-  }
-});
-
-var Home = React.createClass({
-  render: function(){
-    return <h1>Home</h1>;
-  }
-});
+var NotFound = require('components/NotFound');
+var Navigation = require('components/Navigation');
+var Home = require('components/Home');
 
 var About = React.createClass({
   render: function() {
@@ -57,10 +34,26 @@ var _routes = [{
 
 var App = React.createClass({
   render: function(){
-    var route = Router.Component;
+    var router = Router.Component;
+
+    var title;
+    switch(this.props.path) {
+      case "/about":
+        title = "About";
+        break;
+      case "/":
+        title = "Home";
+        break;
+      default:
+        title = "blergh";
+    }
+
+    title = "iest.co | " + title;
+
     return (
       <html>
         <head>
+          <title>{title}</title>
           <link href="/iwnet.css" rel="stylesheet" />
           <script async src="/bundle.js"></script>
           <meta name="viewport" content="width=device-width"/>
@@ -69,13 +62,14 @@ var App = React.createClass({
         </head>
         <body>
           <Navigation activePath={this.props.path} />
-          <route path={this.props.path} routes={_routes} notFound={NotFound}/>
+          <router path={this.props.path} routes={_routes} notFound={NotFound}/>
         </body>
       </html>
       );
   }
 });
 
+// If we're in the browser, render the app
 if (typeof window !== 'undefined') {
   var app = React.renderComponent(App({
     path: window.location.pathname

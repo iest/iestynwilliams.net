@@ -31,14 +31,15 @@
   "browserify": {
     "transform": [
       [
-        "reactify",
-        {
+        "reactify", {
           "harmony": true
         }
       ]
     ]
   },
   "scripts": {
+    "start": "node server.js 8080",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
