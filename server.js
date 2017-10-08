@@ -25,7 +25,9 @@ app.use(function * (next) {
 });
 
 // Setup derp
-derp.setup();
+derp.setup({
+  post_directory: __dirname + '/posts'
+});
 
 var render = views(__dirname + "/views", {
   default: "jade"
