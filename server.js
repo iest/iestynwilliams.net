@@ -8,11 +8,6 @@ var app = koa({
   proxy: true
 });
 var derp = require('derpjs');
-var Datastore = require('nedb'),
-  db = new Datastore({
-    filename: '_datastore',
-    autoload: true
-  });
 
 // Global variables
 var port = process.argv[2] || 3000;
@@ -27,13 +22,6 @@ app.use(function * (next) {
   yield next;
   var ctx = this;
   var endTime = new Date().getTime();
-  db.insert({
-    url: ctx.url,
-    date: new Date(),
-    user_agent: ctx.header['user-agent'],
-    ip: ctx.header['x-forwarded-for'],
-    responseTime: endTime - startTime
-  });
 });
 
 // Setup derp

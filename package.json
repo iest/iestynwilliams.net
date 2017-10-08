@@ -17,8 +17,7 @@
     "koa": "^0.8.0",
     "koa-static": "^1.4.5",
     "marked": "^0.3.2",
-    "moment": "^2.7.0",
-    "nedb": "^0.10.6"
+    "moment": "^2.7.0"
   },
   "devDependencies": {
     "co-views": "^0.2.0",
